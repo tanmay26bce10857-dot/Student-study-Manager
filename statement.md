@@ -1,60 +1,40 @@
-# Student Study & Task Management System
+# Project Statement
+
+## Project Title
+
+Student Study & Task Management System
 
 ## Problem Statement
 
-Students often manage their academic tasks and study activities using different notes, applications, or manual methods. This can make it difficult to keep track of pending tasks, completed work, study hours, and subject-wise study progress.
+Students often need to manage academic tasks and track the amount of time they spend studying different subjects. Managing this information manually can make it difficult to keep track of completed tasks and study progress.
 
-The Student Study & Task Management System provides a simple console-based solution for managing academic tasks and recording study sessions in one place.
+This project provides a simple console-based application that allows students to manage tasks, record study sessions, and view basic statistics.
 
-## Scope of the Project
+## Objectives
 
-The project focuses on basic academic task management and study tracking.
-
-The system allows users to:
-
-- Add and manage academic tasks
-- Mark tasks as completed
-- Delete tasks
-- Record study sessions
-- View study records
-- View statistics about tasks and study hours
-- Store information using JSON files
-
-The project is designed as a simple local application and does not require an internet connection or external database.
+1. To provide a simple system for managing student tasks.
+2. To allow students to record their study sessions.
+3. To display basic study and task statistics.
+4. To store information using JSON files.
+5. To demonstrate Python programming concepts through a modular application.
 
 ## Target Users
 
-The main target users are:
+The primary users of this system are students who want to manage academic tasks and monitor their study activities.
 
-- College students
-- School students
-- Learners who want to track study activities
-- Students who want to manage academic tasks
+## Scope
 
-## High-Level Features
+The system includes task management, study record management, statistics, JSON-based data storage, input validation, and basic error handling.
 
-### 1. Task Management
+The project is designed as a beginner-friendly console application using Python's standard library.
 
-Users can add, view, complete, and delete academic tasks.
+## Major Modules
 
-### 2. Study Management
+1. Task Management
+2. Study Management
+3. Statistics
+4. File Handling
 
-Users can record study sessions by entering the subject, study hours, and topic studied.
+## Expected Outcome
 
-### 3. Statistics
-
-The system displays:
-
-- Total number of tasks
-- Completed tasks
-- Pending tasks
-- Total study hours
-- Study hours by subject
-
-### 4. Data Storage
-
-Task and study information is stored locally in JSON files so that the data remains available when the program is run again.
-
-### 5. Input Validation
-
-The system checks user input and displays appropriate messages for invalid choices, empty values, and invalid numerical input.
+The completed system provides students with a simple way to manage academic tasks, record study sessions, and view their overall study activity.
