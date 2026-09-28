@@ -1,60 +1,59 @@
 # Student Study & Task Management System
 
-## Problem Statement
+## 1. Project Overview
 
-Students often manage their academic tasks and study activities using different notes, applications, or manual methods. This can make it difficult to keep track of pending tasks, completed work, study hours, and subject-wise study progress.
+The Student Study & Task Management System is a Python-based console application designed to help students manage their daily tasks and study activities.
 
-The Student Study & Task Management System provides a simple console-based solution for managing academic tasks and recording study sessions in one place.
+The system allows users to create and manage tasks, record study sessions, and view basic productivity statistics.
 
-## Scope of the Project
+## 2. Features
 
-The project focuses on basic academic task management and study tracking.
-
-The system allows users to:
-
-- Add and manage academic tasks
+### Task Management
+- Add new tasks
+- View all tasks
 - Mark tasks as completed
 - Delete tasks
-- Record study sessions
+
+### Study Management
+- Add study records
+- Record subject, study hours, and topic
 - View study records
-- View statistics about tasks and study hours
-- Store information using JSON files
 
-The project is designed as a simple local application and does not require an internet connection or external database.
+### Statistics
+- View total number of tasks
+- View completed and pending tasks
+- View total study hours
+- View study hours by subject
 
-## Target Users
+### Data Storage
+- Data is stored locally using JSON files.
+- The application automatically creates the required data folder.
 
-The main target users are:
+## 3. Technologies Used
 
-- College students
-- School students
-- Learners who want to track study activities
-- Students who want to manage academic tasks
+- Python 3
+- JSON
+- Python Standard Library
+- Git and GitHub
+- Visual Studio Code
 
-## High-Level Features
+## 4. Project Structure
 
-### 1. Task Management
-
-Users can add, view, complete, and delete academic tasks.
-
-### 2. Study Management
-
-Users can record study sessions by entering the subject, study hours, and topic studied.
-
-### 3. Statistics
-
-The system displays:
-
-- Total number of tasks
-- Completed tasks
-- Pending tasks
-- Total study hours
-- Study hours by subject
-
-### 4. Data Storage
-
-Task and study information is stored locally in JSON files so that the data remains available when the program is run again.
-
-### 5. Input Validation
-
-The system checks user input and displays appropriate messages for invalid choices, empty values, and invalid numerical input.
+```text
+Student-study-manager/
+│
+├── data/
+│   ├── tasks.json
+│   └── study_records.json
+│
+├── tests/
+│   └── test_project.py
+│
+├── main.py
+├── task_manager.py
+├── study_manager.py
+├── statistics.py
+├── file_handler.py
+├── statement.md
+├── README.md
+└── .gitignore
