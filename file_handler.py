@@ -1,40 +1,28 @@
 import json
 import os
 
+folder = "data"
 
-DATA_FOLDER = "data"
+def load(file):
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, file)
 
-
-def ensure_data_folder():
-    """Create the data folder if it does not already exist."""
-    os.makedirs(DATA_FOLDER, exist_ok=True)
-
-
-def load_data(filename):
-    """Load data from a JSON file."""
-    ensure_data_folder()
-
-    file_path = os.path.join(DATA_FOLDER, filename)
-
-    if not os.path.exists(file_path):
+    if not os.path.exists(path):
         return []
 
     try:
-        with open(file_path, "r", encoding="utf-8") as file:
-            return json.load(file)
-    except (json.JSONDecodeError, OSError):
+        with open(path, "r") as f:
+            return json.load(f)
+    except:
         return []
 
-
-def save_data(filename, data):
-    """Save data to a JSON file."""
-    ensure_data_folder()
-
-    file_path = os.path.join(DATA_FOLDER, filename)
+def save(file, data):
+    os.makedirs(folder, exist_ok=True)
+    path = os.path.join(folder, file)
 
     try:
-        with open(file_path, "w", encoding="utf-8") as file:
-            json.dump(data, file, indent=4)
+        with open(path, "w") as f:
+            json.dump(data, f, indent=4)
         return True
-    except OSError:
+    except:
         return False

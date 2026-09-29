@@ -1,11 +1,8 @@
-from file_handler import load_data, save_data
+from file_handler import load, save
 
-
-STUDY_FILE = "study_records.json"
-
+file = "study_records.json"
 
 def add_study_record():
-    """Add a new study session."""
     subject = input("Enter subject name: ").strip()
 
     if not subject:
@@ -31,18 +28,16 @@ def add_study_record():
         "topic": topic
     }
 
-    records = load_data(STUDY_FILE)
+    records = load(file)
     records.append(record)
 
-    if save_data(STUDY_FILE, records):
+    if save(file, records):
         print("Study record added successfully.")
     else:
         print("Unable to save study record.")
 
-
 def view_study_records():
-    """Display all study records."""
-    records = load_data(STUDY_FILE)
+    records = load(file)
 
     if not records:
         print("No study records found.")
@@ -50,7 +45,7 @@ def view_study_records():
 
     print("\n--- Study Records ---")
 
-    for index, record in enumerate(records, start=1):
-        print(f"{index}. Subject: {record['subject']}")
+    for i, record in enumerate(records, 1):
+        print(f"{i}. Subject: {record['subject']}")
         print(f"   Hours: {record['hours']}")
         print(f"   Topic: {record['topic']}")

@@ -2,7 +2,6 @@ from task_manager import add_task, view_tasks, complete_task, delete_task
 from study_manager import add_study_record, view_study_records
 from statistics import show_statistics
 
-
 def task_menu():
     while True:
         print("\n--- Task Management ---")
@@ -27,7 +26,6 @@ def task_menu():
         else:
             print("Invalid choice. Please try again.")
 
-
 def study_menu():
     while True:
         print("\n--- Study Management ---")
@@ -45,7 +43,6 @@ def study_menu():
             break
         else:
             print("Invalid choice. Please try again.")
-
 
 def main():
     while True:
@@ -71,8 +68,5 @@ def main():
         else:
             print("Invalid choice. Please enter 1, 2, 3, or 4.")
 
-
 if __name__ == "__main__":
     main()
-    
-    

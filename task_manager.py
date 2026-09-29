@@ -1,37 +1,32 @@
-from file_handler import load_data, save_data
+from file_handler import load, save
 
-
-TASK_FILE = "tasks.json"
-
+file = "tasks.json"
 
 def add_task():
-    """Add a new task."""
     title = input("Enter task title: ").strip()
 
     if not title:
         print("Task title cannot be empty.")
         return
 
-    description = input("Enter task description: ").strip()
+    desc = input("Enter task description: ").strip()
 
     task = {
         "title": title,
-        "description": description,
+        "description": desc,
         "completed": False
     }
 
-    tasks = load_data(TASK_FILE)
+    tasks = load(file)
     tasks.append(task)
 
-    if save_data(TASK_FILE, tasks):
+    if save(file, tasks):
         print("Task added successfully.")
     else:
         print("Unable to save task.")
 
-
 def view_tasks():
-    """Display all tasks."""
-    tasks = load_data(TASK_FILE)
+    tasks = load(file)
 
     if not tasks:
         print("No tasks found.")
@@ -39,17 +34,15 @@ def view_tasks():
 
     print("\n--- Your Tasks ---")
 
-    for index, task in enumerate(tasks, start=1):
+    for i, task in enumerate(tasks, 1):
         status = "Completed" if task["completed"] else "Pending"
 
-        print(f"{index}. {task['title']}")
+        print(f"{i}. {task['title']}")
         print(f"   Description: {task['description']}")
         print(f"   Status: {status}")
 
-
 def complete_task():
-    """Mark a task as completed."""
-    tasks = load_data(TASK_FILE)
+    tasks = load(file)
 
     if not tasks:
         print("No tasks found.")
@@ -58,15 +51,15 @@ def complete_task():
     view_tasks()
 
     try:
-        number = int(input("Enter task number to complete: "))
+        num = int(input("Enter task number to complete: "))
 
-        if number < 1 or number > len(tasks):
+        if num < 1 or num > len(tasks):
             print("Invalid task number.")
             return
 
-        tasks[number - 1]["completed"] = True
+        tasks[num - 1]["completed"] = True
 
-        if save_data(TASK_FILE, tasks):
+        if save(file, tasks):
             print("Task marked as completed.")
         else:
             print("Unable to save changes.")
@@ -74,10 +67,8 @@ def complete_task():
     except ValueError:
         print("Please enter a valid number.")
 
-
 def delete_task():
-    """Delete a task."""
-    tasks = load_data(TASK_FILE)
+    tasks = load(file)
 
     if not tasks:
         print("No tasks found.")
@@ -86,16 +77,16 @@ def delete_task():
     view_tasks()
 
     try:
-        number = int(input("Enter task number to delete: "))
+        num = int(input("Enter task number to delete: "))
 
-        if number < 1 or number > len(tasks):
+        if num < 1 or num > len(tasks):
             print("Invalid task number.")
             return
 
-        deleted_task = tasks.pop(number - 1)
+        deleted = tasks.pop(num - 1)
 
-        if save_data(TASK_FILE, tasks):
-            print(f"Task '{deleted_task['title']}' deleted successfully.")
+        if save(file, tasks):
+            print(f"Task '{deleted['title']}' deleted successfully.")
         else:
             print("Unable to save changes.")
 

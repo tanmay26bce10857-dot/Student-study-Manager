@@ -1,26 +1,23 @@
-from file_handler import load_data
+from file_handler import load
 
-
-TASK_FILE = "tasks.json"
-STUDY_FILE = "study_records.json"
-
+task_file = "tasks.json"
+study_file = "study_records.json"
 
 def show_statistics():
-    """Display task and study statistics."""
-    tasks = load_data(TASK_FILE)
-    records = load_data(STUDY_FILE)
+    tasks = load(task_file)
+    records = load(study_file)
 
-    total_tasks = len(tasks)
-    completed_tasks = sum(1 for task in tasks if task["completed"])
-    pending_tasks = total_tasks - completed_tasks
+    total = len(tasks)
+    done = sum(1 for task in tasks if task["completed"])
+    pending = total - done
 
-    total_study_hours = sum(record["hours"] for record in records)
+    hours = sum(record["hours"] for record in records)
 
     print("\n--- Study Statistics ---")
-    print(f"Total tasks: {total_tasks}")
-    print(f"Completed tasks: {completed_tasks}")
-    print(f"Pending tasks: {pending_tasks}")
-    print(f"Total study hours: {total_study_hours:.2f}")
+    print(f"Total tasks: {total}")
+    print(f"Completed tasks: {done}")
+    print(f"Pending tasks: {pending}")
+    print(f"Total study hours: {hours:.2f}")
 
     if records:
         subjects = {}
